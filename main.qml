@@ -22,6 +22,11 @@ Window {
             id: wheel
             source: "images/pinwheel.png"
             anchors.centerIn: parent
+            Behavior on rotation {
+                NumberAnimation {
+                    duration: 250
+                }
+            }
         }
 
         MouseArea {
