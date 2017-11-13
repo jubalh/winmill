@@ -10,5 +10,18 @@ Window {
     Image {
         id: background
         source: "images/background.png"
+
+        Image {
+            id: pole
+            source: "images/pole.png"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+        }
+
+        Image {
+            id: wheel
+            source: "images/pinwheel.png"
+            anchors.centerIn: parent
+        }
     }
 }
