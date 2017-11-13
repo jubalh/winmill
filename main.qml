@@ -1,6 +1,14 @@
 import QtQuick 2.6
+import QtQuick.Window 2.3
 
-Image {
+Window {
     id: root
-    source: "images/background.png"
+    visible: true
+    width: background.width
+    height: background.height
+
+    Image {
+        id: background
+        source: "images/background.png"
+    }
 }
