@@ -8,11 +8,11 @@ Window {
 
     ListModel {
         id: nameModel
-        ListElement { name: "Alice" }
-        ListElement { name: "Bob" }
-        ListElement { name: "Jane" }
-        ListElement { name: "Harry" }
-        ListElement { name: "Wendy" }
+        ListElement { name: "Alice"; team: "Crypto" }
+        ListElement { name: "Bob"; team: "Crypto" }
+        ListElement { name: "Jane"; team: "QA" }
+        ListElement { name: "Harry"; team: "QA" }
+        ListElement { name: "Wendy"; team: "Graphics" }
     }
 
     Component {
@@ -20,15 +20,33 @@ Window {
         Text {
             text: name;
             font.pixelSize: 24
+            anchors.left: parent.left
+            anchors.leftMargin: 2
         }
     }
 
     ListView {
         anchors.fill: parent
-        clip: true
+        //clip: true
         model: nameModel
         delegate: nameDelegate
         header: bannercomponent
+        focus: true
+        section {
+            property: "team"
+            criteria: ViewSelection.FullString
+            delegate: Rectangle {
+                color: "#b0dfb0"
+                width: parent.width
+                height: childrenRect.height + 4
+                Text {
+                    font.pixelSize: 16
+                    font.bold: true
+                    text: section
+                }
+            }
+        }
+
         footer: Rectangle {
             width: parent.width; height: 30;
             gradient: clubcolors
