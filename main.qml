@@ -23,5 +23,10 @@ Window {
             source: "images/pinwheel.png"
             anchors.centerIn: parent
         }
+
+        MouseArea {
+            anchors.fill: background
+            onClicked: wheel.rotation += 90
+        }
     }
 }
